@@ -42,6 +42,18 @@
     
     [self.collectionView registerClass:[HXPhotoEditChartletListViewCell class] forCellWithReuseIdentifier:@"HXPhotoEditChartletListViewCell_Id"];
 }
+- (void)setCountOfRow:(NSInteger)countOfRow {
+    if (countOfRow > 0) {
+        UIInterfaceOrientation orientation = [[UIApplication sharedApplication] statusBarOrientation];
+        if (orientation == UIInterfaceOrientationPortrait || orientation == UIInterfaceOrientationPortraitUpsideDown || HX_UI_IS_IPAD) {
+            CGFloat width = (HX_ScreenWidth - (countOfRow + 1) * 20) / countOfRow;
+            self.flowLayout.itemSize = CGSizeMake(width, width);
+        }else {
+            CGFloat width = ((HX_ScreenWidth - hxTopMargin * 2) - (countOfRow * 2 + 1) * 20) / (countOfRow * 2);
+            self.flowLayout.itemSize = CGSizeMake(width, width);
+        }
+    }
+}
 - (void)setModels:(NSArray<HXPhotoEditChartletModel *> *)models {
     _models = models;
     [self.collectionView reloadData];
