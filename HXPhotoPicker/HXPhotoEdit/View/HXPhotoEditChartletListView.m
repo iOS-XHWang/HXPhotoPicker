@@ -278,6 +278,7 @@
     if (collectionView == self.collectionView) {
         HXPhotoEditChartletContentViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"HXPhotoEditChartletContentViewCellId" forIndexPath:indexPath];
         HXPhotoEditChartletTitleModel *titleModel = self.models[indexPath.section];
+        cell.countOfRow = titleModel.countOfRow;
         cell.models = titleModel.models;
         HXWeakSelf
         cell.selectCellBlock = ^(UIImage * _Nonnull image) {
