@@ -42,6 +42,9 @@ typedef NS_ENUM(NSUInteger, HXPhotoEditChartletModelType) {
 
 // other
 @property (assign, nonatomic) BOOL selected;
+
+@property (nonatomic, assign) NSInteger countOfRow; ///< 每行放几个贴图
+
 @end
 
 NS_ASSUME_NONNULL_END
