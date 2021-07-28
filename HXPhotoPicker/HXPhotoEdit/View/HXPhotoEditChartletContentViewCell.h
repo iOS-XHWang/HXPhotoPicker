@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface HXPhotoEditChartletContentViewCell : UICollectionViewCell
 @property (weak, nonatomic, readonly) IBOutlet UICollectionView *collectionView;
 @property (copy, nonatomic) NSArray<HXPhotoEditChartletModel *> *models;
+@property (nonatomic, assign) NSInteger countOfRow; ///< 每行放几个贴图
 @property (copy, nonatomic) void (^ selectCellBlock)(UIImage *image);
 @end
 
