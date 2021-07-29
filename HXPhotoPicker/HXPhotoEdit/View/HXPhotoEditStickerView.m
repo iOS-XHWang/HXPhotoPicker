@@ -238,16 +238,13 @@ NSString *const kHXStickerViewData_movingView_superAngel = @"HXStickerViewData_m
     itemView.getMaxScale = self.getMaxScale;
     CGFloat scale;
     if (!item.textModel) {
-        CGFloat ratio = 0.5f;
-        CGFloat width = self.hx_w * self.screenScale;
-        CGFloat height = self.hx_h * self.screenScale;
-        if (width > HX_ScreenWidth) {
-            width = HX_ScreenWidth;
+        if (itemView.frame.size.width < 100) {
+            scale = 1.2;
+        } else if (itemView.frame.size.width > 300) {
+            scale = 300.0 / itemView.frame.size.width;
+        } else {
+            scale = 1;
         }
-        if (height > HX_ScreenHeight) {
-            height = HX_ScreenHeight;
-        }
-        scale = MIN( (ratio * width) / itemView.frame.size.width, (ratio * height) / itemView.frame.size.height);
     }else {
         scale = MIN( MIN(self.hx_w  * self.screenScale - 40, itemView.hx_w) / itemView.hx_w , MIN(self.hx_h * self.screenScale - 40, itemView.hx_h) / itemView.hx_h);
     }
